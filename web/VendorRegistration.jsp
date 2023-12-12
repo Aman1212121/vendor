@@ -561,7 +561,7 @@ VendorDAO vdao = (VendorDAO) request.getSession().getAttribute("vdao");
             <div class="field">
                 <input type="text"  name="photo" onkeyup="validatePhoto()" id="photo" required>
                 <span id="photodisplay"></span>
-                <label>Image</label>
+                <label>Description</label>
             </div>
             <div class="content">
                 <div class="checkbox">

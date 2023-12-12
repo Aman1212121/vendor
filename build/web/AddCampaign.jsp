@@ -594,7 +594,7 @@
                 <label>Address</label>
             </div> 
             <div class="field">
-                <input type="number"  id="vendorId" onkeyup="validatevendorId()" name="VendorId" required>
+                <input type="number"  id="vendorId" min="0" onkeyup="validatevendorId()" name="VendorId" required>
                 <span id="vdisplay"></span>
                 <label>Vendor Id</label>
             </div>
