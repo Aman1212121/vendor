@@ -34,7 +34,19 @@
     </servlet>
     <servlet>
         <servlet-name>SearchServlet</servlet-name>
-        <servlet-class>com.vendor.controller.SearchServlet</servlet-class>
+        <servlet-class>com.vendor.controller.SearchCampaignsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <servlet-class>com.vendor.controller.ForgotPasswordServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OtpVerificationServlet</servlet-name>
+        <servlet-class>com.vendor.controller.OtpVerificationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePass</servlet-name>
+        <servlet-class>com.vendor.controller.ChangePass</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>VendorRegistrationTask</servlet-name>
@@ -71,5 +83,17 @@
     <servlet-mapping>
         <servlet-name>SearchServlet</servlet-name>
         <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgotPasswordServlet</servlet-name>
+        <url-pattern>/ForgotPasswordServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OtpVerificationServlet</servlet-name>
+        <url-pattern>/OtpVerificationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePass</servlet-name>
+        <url-pattern>/ChangePass</url-pattern>
     </servlet-mapping>
 </web-app>

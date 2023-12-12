@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.vendor.service.DBCon;
 
+
 /**
  *
  * @author T460
@@ -145,6 +146,36 @@ public class VendorDTO {
            
         }
            return b;
+    }
+    public static boolean isEmailExists(VendorDAO vdao) throws SQLException{
+            boolean b=false;
+            Connection con=DBCon.DBConnnection();
+            PreparedStatement ps;
+            String query = "select * from vendordetails where email = ?";
+            ps=con.prepareStatement(query);
+            ps.setString(1,vdao.getEmail());
+            ResultSet rs=ps.executeQuery();
+            if(rs.next()){
+                vdao.setEmail(rs.getString("email"));
+                  b=true;      
+            }           
+            return b;
+    }
+    public static boolean setPasswordByEmail(VendorDAO vdao) throws SQLException{
+            boolean b=false ;
+            Connection con=DBCon.DBConnnection();
+            PreparedStatement ps;
+            String query ="update vendordetails set password=? where email=?";
+            ps=con.prepareStatement(query);
+            ps.setString(1,vdao.getPassword());
+            ps.setString(2,vdao.getEmail());
+            if(ps.executeUpdate()>0){
+                 b=true;
+                 
+            }
+            
+            return b;
+            
     }
     
 }

@@ -59,8 +59,8 @@
         <li class="nav-item"><a class="nav-link" href="Cart.jsp">Campaigns<span class="badge badge-danger">${cart_list.size()}</span> </a></li>
       </ul>
       <form class="d-flex" action="">
-        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" id="searchInput"  type="search" name="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" onclick="searchCampaigns()" type="submit">Search</button>
       </form>
     </div>
   </div>   

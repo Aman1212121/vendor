@@ -66,7 +66,7 @@ try {
     boolean b = false;
     try{
     b = cdto.CampaignsInsert(cdao);
-    }catch(Exception ex){
+    }catch(SQLException ex){
          out.println("This is my custom exception!");
     }
     if (b) {

@@ -214,6 +214,9 @@
                     <label for="remember-me">Remember me </label>
                 </div>
             </div>
+            <div class="content">
+                    <label for="remember-me">Forgot Password <a href="forgot-password.jsp">click here</a> </label>
+            </div>
             <div class="field">
                 <input type="submit" value="Login">
             </div>

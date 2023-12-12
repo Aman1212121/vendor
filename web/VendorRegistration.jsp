@@ -572,7 +572,6 @@ VendorDAO vdao = (VendorDAO) request.getSession().getAttribute("vdao");
             <div class="field">
                 <input type="submit" value="Login">
             </div>
-            
         </form>
     </div>  
   </body>

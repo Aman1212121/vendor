@@ -107,7 +107,7 @@ public class CampaignDTO {
 
             // Process the result set
             while (rs.next()) {
-                CampaignDAO campaign = new CampaignDAO(); 
+               CampaignDAO campaign = new CampaignDAO(); 
                campaign.setVendor_Id(rs.getInt("vendor_Id"));
                campaign.setMaximum_appointment(rs.getInt("maximum_appointment"));
                campaign.setName(rs.getString("name"));
@@ -115,7 +115,7 @@ public class CampaignDTO {
                campaign.setAddress(rs.getString("address"));
                campaign.setCampaign_Date(rs.getDate("Campaign_Date"));
                campaign.setImage(rs.getString("image")); 
-                searchResults.add(campaign);
+               searchResults.add(campaign);
             }
 
         } catch (SQLException e) {

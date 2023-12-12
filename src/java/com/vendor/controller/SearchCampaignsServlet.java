@@ -12,12 +12,16 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author T460
  */
-public class SearchServlet extends HttpServlet {
+public class SearchCampaignsServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,18 +33,31 @@ public class SearchServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String searchQuery = request.getParameter("search");
             /* TODO output your page here. You may use following sample code. */
-            String search=request.getParameter("search");
-            CampaignDAO cdao=new CampaignDAO();
-            cdao.setName(search);
             CampaignDTO cdto=new CampaignDTO();
-            
-            
+            List<CampaignDAO> searchResults = cdto.searchByName(searchQuery);
+
+        // Create HTML for the search results
+        StringBuilder htmlResult = new StringBuilder();
+        for (CampaignDAO campaign : searchResults) {
+            // Add HTML code for each search result
+            htmlResult.append("<div>");
+            htmlResult.append("Campaign Name: ").append(campaign.getName()).append("<br>");
+            // Add other details as needed
+            htmlResult.append("</div>");
         }
+
+        // Send the HTML response to the client
+        response.getWriter().write(htmlResult.toString());
     }
+            
+          
+        }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -54,7 +71,11 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchCampaignsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -68,7 +89,11 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchCampaignsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
