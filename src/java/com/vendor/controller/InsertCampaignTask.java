@@ -61,6 +61,8 @@ try {
     cdao.setEmail(email);
     cdao.setVendor_Id(Integer.parseInt(vendorId));
     cdao.setImage(image);
+    
+   
 
     CampaignDTO cdto = new CampaignDTO();
     boolean b = false;
@@ -74,14 +76,9 @@ try {
     } else {
         response.sendRedirect("AddCampaign.jsp");
     }
-} catch (ParseException | NumberFormatException e) { // Handle parsing or conversion exceptions
-               // Log the exception or handle it appropriately
-               // Log the exception or handle it appropriately
-    response.sendRedirect("AddCampaign.jsp"); // Redirect to an error page
+} catch (ParseException | NumberFormatException e) { 
+           response.sendRedirect("AddCampaign.jsp"); // Redirect to an error page
 }
-            
-            
-            
         }
     }
 

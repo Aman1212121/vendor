@@ -11,7 +11,6 @@
      }
 CampaignDTO cdto=new CampaignDTO();
 List<CampaignDAO> campaigns= cdto.getAllCampaigns();
-
 %>
 <!DOCTYPE html>
 <html>
